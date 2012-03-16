@@ -63,10 +63,10 @@ describe Article do
       @article1.merge_with("id")  
       @article1.comments.should == [@comment1_article1, @comment2_article1, @comment1_article2, @comment2_article2]
     end
-    it "should destory article2 after having merged it's content to article1" do
+    it "should delete article2 after having merged it's content to article1" do
       return_val = mock("Article")
       Article.stub(:find_by_id).with("id").and_return(@article2)
-      @article2.should_receive(:destroy)
+      @article2.should_receive(:delete)
       @article1.merge_with("id")  
     end
 
